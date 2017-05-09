@@ -11,8 +11,8 @@ import argparse
 
 # Diatiposi tis morfis pou theloume na asxolithoume/epeksergastoume meso kanonikis ekfrasis
 # Morfi :	00:00:00.000 --> 00:00:00,000
-restrow = r'( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} ) \s --> \s ( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} )$'
-rexp = re.compile( restrow )
+restr = r'( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} ) \s --> \s ( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} )$'
+rexp = re.compile( restr )
 
 parser = argparse.ArgumentParser()
 
@@ -41,7 +41,7 @@ with open( args.fname, 'r', newline = '' ) as ifp:
 			secBeginNew = float( secBeginOld ) + args.offset
 # Metatrepoume pali se string
 			secBeginCorrect = str( secBeginNew )
-			convertBegin = re.sub( restrow, r'\3' + secBeginCorrect, line )
+			convertBegin = re.sub( restr, r'\3' + secBeginCorrect, line )
 			
 # Gia ta deuterolepta tou telous:
 # Pernoume to 7o group tis grammis
@@ -50,7 +50,7 @@ with open( args.fname, 'r', newline = '' ) as ifp:
 			secEndNew = float( secEndOld ) + args.offset
 # Metatrepoume pali se string
 			secEndCorrect = str( secEndNew )
-			convertEnd = re.sub( restrow, r'\7' + secEndCorrect, line )
+			convertEnd = re.sub( restr, r'\7' + secEndCorrect, line )
 
 # Ektuposi tis ekastote grammis
 		sys.stdout.write(line)		
