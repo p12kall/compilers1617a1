@@ -11,7 +11,7 @@ import argparse
 
 # Diatiposi tis morfis pou theloume na asxolithoume/epeksergastoume meso kanonikis ekfrasis
 # Morfi :	00:00:00.000 --> 00:00:00,000
-restr = r'( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} ) \s --> \s ( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} )$'
+restr = r'( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} ) \s --> \s ( \d{2} ) : ( \d{2} ) : ( \d{2} ) , ( \d{3} )'
 rexp = re.compile( restr )
 
 parser = argparse.ArgumentParser()
